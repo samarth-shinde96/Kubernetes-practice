@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aws-deployment
+  name: aws1-deployment
   labels:
-    app: aws
+    app: aws1
 
 spec:
   replicas: 2
 
   selector:
     matchLabels:
-      app: aws
+      app: aws1
 
   template:
     metadata:
       labels:
-        app: aws
+        app: aws1
 
     spec:
       containers:
-        - name: aws
+        - name: aws1
           image: 992382715314.dkr.ecr.us-east-1.amazonaws.com/aws:latest
           imagePullPolicy: Always
 
@@ -31,11 +31,11 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: aws-service
+  name: aws1-service
 
 spec:
   selector:
-    app: aws
+    app: aws1
 
   ports:
     - port: 80
